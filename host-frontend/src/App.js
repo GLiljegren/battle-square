@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import socketIOClient from "socket.io-client";
 //import axios from "axios";
-const ENDPOINT = "206.189.27.147:4001/";
 
 const App = () => {
   const [id, setId] = useState(null);
@@ -10,7 +9,7 @@ const App = () => {
   useEffect(() => {}, []);
 
   const createGameHandler = () => {
-    const socket = socketIOClient(ENDPOINT);
+    const socket = socketIOClient("/");
     socket.on("create", (_id) => {
       setId(_id);
     });

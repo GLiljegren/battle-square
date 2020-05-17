@@ -7,7 +7,11 @@ const ENDPOINT = "https://206.189.27.147:4001";
 const App = () => {
   const [id, setId] = useState(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    axios.get(ENDPOINT).then((res) => {
+      console.log(res);
+    });
+  }, []);
 
   const createGameHandler = () => {
     const socket = socketIOClient(ENDPOINT);

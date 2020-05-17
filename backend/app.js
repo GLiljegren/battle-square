@@ -1,5 +1,5 @@
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const socketIo = require("socket.io");
 const cors = require("cors");
 
@@ -30,7 +30,7 @@ app.use(
 );
 app.use(index);
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 server.listen(port, () => console.log(`Listening on port ${port}`));
 
 const io = socketIo(server); // < Interesting!

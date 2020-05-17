@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import socketIOClient from "socket.io-client";
-//import axios from "axios";
+import axios from "axios";
 const ENDPOINT = "https://206.189.27.147:4001";
 
 const App = () => {

@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/create", (req, res) => {
-  res.send({ response: { data: "45HR" } }).status(200);
+  res.send({ id: "45HR" }).status(200);
 });
 
 module.exports = router;

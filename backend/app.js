@@ -36,9 +36,13 @@ server.listen(port, () => console.log(`Listening on port ${port}`));
 const io = socketIo(server); // < Interesting!
 
 io.on("connection", (socket) => {
-  console.log("New client connected");
+  console.log("New client connected: " + socket.id);
 
-  socket.emit("create", "K34M");
+  socket.on("connectUser", (id) => {
+    socket.join(id);
+    console.log(id + ": user connected");
+    io.to(id).emit("welcome", io.sockets.adapter.rooms[id]);
+  });
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");
